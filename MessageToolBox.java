@@ -81,25 +81,23 @@ public class MessageToolBox {
         return r;
     }
     
-    
     public static void display(String messageText, int width) {
-        if (width <= messageText.length()) {
-             return;
-        }
-        
+        int remChar = messageText.length();
+        int index = 0;
         if (width < 10) {
             width = 10;
         }
-        if (width >80) {
+        if (width > 80) {
             width = 80;
         }
-    int remChar = messageText.length();
-    int index = 0
-    while(width <= remChar) {
-        System.out.println(messageText.substring(index + width);
-                          index = index + width;
-                          remChar = remChar - width;
-        
-        System.out.printf("%" + (width) + "s", messageText);
-    }
+        while (width <= remChar) {
+            System.out.println(messageText.substring(index, index + width));
+            index = index + width;
+            remChar = remChar - width;
+        }
+        if (remChar > 0) {
+            System.out.println(messageText.substring(index));
+        }
+    
+    
 }
